@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Contoh Navigasi',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.indigo,
+          backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
         ),
       ),
@@ -23,22 +23,22 @@ class MyApp extends StatelessWidget {
         '/pantai': (context) => const DetailPage(
               itemTile: 'Pantai',
               icon: Icons.beach_access,
-              themeColor: Colors.teal,
+              themeColor: Colors.blue,
             ),
         '/gunung': (context) => const DetailPage(
               itemTile: 'Gunung',
               icon: Icons.terrain,
-              themeColor: Colors.brown,
+              themeColor: Colors.blue,
             ),
         '/budaya': (context) => const DetailPage(
               itemTile: 'Budaya',
               icon: Icons.museum,
-              themeColor: Colors.deepOrange,
+              themeColor: Colors.blue,
             ),
         '/kuliner': (context) => const DetailPage(
               itemTile: 'Kuliner',
               icon: Icons.fastfood,
-              themeColor: Colors.amber,
+              themeColor: Colors.blue,
             ),
       },
     );
@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
             icon: const Icon(Icons.beach_access),
             label: const Text('Pantai'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.teal,
+              backgroundColor: Colors.blue,
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
             icon: const Icon(Icons.terrain),
             label: const Text('Gunung'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.brown,
+              backgroundColor: Colors.blue,
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
@@ -100,7 +100,7 @@ class HomePage extends StatelessWidget {
             icon: const Icon(Icons.museum),
             label: const Text('Budaya'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.deepOrange,
+              backgroundColor: Colors.blue,
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
@@ -116,7 +116,7 @@ class HomePage extends StatelessWidget {
             icon: const Icon(Icons.fastfood),
             label: const Text('Kuliner'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.amber.shade800,
+              backgroundColor: Colors.blue,
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
