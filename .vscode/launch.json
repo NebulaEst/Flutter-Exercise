@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Navigasi Lanjutan (Chrome)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/navigasi_lanjutan.dart",
+      "deviceId": "chrome"
+    }
+  ]
+}

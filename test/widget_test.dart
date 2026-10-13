@@ -5,48 +5,38 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pratikum/navigasi_lanjutan.dart' as navigasi;
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const _CounterTestApp());
+  testWidgets('kategori membuka halaman detail yang tepat', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const navigasi.MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    const categories = {
+      'Pantai': Colors.teal,
+      'Gunung': Colors.brown,
+      'Budaya': Colors.deepOrange,
+      'Kuliner': Colors.amber,
+    };
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    for (final category in categories.entries) {
+      await tester.ensureVisible(find.text(category.key));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(category.key));
+      await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+      expect(find.text(category.key), findsOneWidget);
+      expect(
+        tester.widget<AppBar>(find.byType(AppBar)).backgroundColor,
+        category.value,
+      );
+
+      await tester.tap(find.text('Kembali'));
+      await tester.pumpAndSettle();
+      expect(find.text('Beranda'), findsOneWidget);
+    }
   });
-}
-
-class _CounterTestApp extends StatefulWidget {
-  const _CounterTestApp();
-
-  @override
-  State<_CounterTestApp> createState() => _CounterTestAppState();
-}
-
-class _CounterTestAppState extends State<_CounterTestApp> {
-  int _counter = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Text('$_counter'),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => setState(() => _counter++),
-          child: const Icon(Icons.add),
-        ),
-      ),
-    );
-  }
 }
